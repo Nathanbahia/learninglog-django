@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Nathanbahia/projeto-django.svg?branch=master)](https://travis-ci.com/Nathanbahia/projeto-django)
+
 # Projeto Django
 
 ### Projeto criado para treinar os conceitos aprendidos sobre Django
