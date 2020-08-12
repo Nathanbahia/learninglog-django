@@ -21,6 +21,7 @@
 
 **Requisitos para versões de bibliotecas:**
 Em projetos anteriores, usei as seguintes libs abaixo, então peço que mantenham-se as seguintes versões caso seja necessário o uso:
+
 ```
     beautifulsoup4==4.8.2
     django==2.2.11

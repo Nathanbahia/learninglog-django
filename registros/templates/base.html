@@ -1,0 +1,24 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+    <title>Projeto Django</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, minimum-scale=1, maximum-scale=1'>
+    {% bootstrap_css %}
+    <link rel='stylesheet' href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header class=''>
+    <h1 class='title typing'>Django Web Framework</h1>
+    <img class='image-fluid' src="{% static 'img/background.jpg' %}">
+</header>
+
+<div class='container'>
+    {% block content %}
+
+    {% endblock %}
+</div>
+</body>
+</html>
