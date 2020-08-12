@@ -18,3 +18,14 @@
 - Usar views baseadas em funções
 - Usar o banco de dados SQLite3
 - Cada matéria cadastrada deverá ser uma chave estrangeira dentro do modelo de registro de aprendizagem
+
+**Requisitos para versões de bibliotecas:**
+Em projetos anteriores, usei as seguintes libs abaixo, então peço que mantenham-se as seguintes versões caso seja necessário o uso:
+```
+    beautifulsoup4==4.8.2
+    django==2.2.11
+    django-bootstrap4==1.1.1
+    pytz==2019.3
+    soupsieve==2.0
+    sqlparse==0.3.1
+```
