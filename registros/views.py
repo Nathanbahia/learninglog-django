@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.contrib import messages
 from .forms import MateriaModelForm, RegistroModelForm
 from .models import MateriaModel, RegistroModel
-from datetime import datetime
 
 
 def index(request):
-    """ Renderiza o template da página inicial """
+    """ Renderiza o template da página inicial. Cria formulário 
+    e envia mensagens de sucesso ou falha no salvamento dos registros
+    de aprendizagem."""
 
     form = RegistroModelForm(request.POST or None)
     if str(request.method) == 'POST':        
@@ -16,10 +17,9 @@ def index(request):
             messages.success(request, 'Registro inserido com sucesso.')
         else:
             messages.error(request, 'Falha ao salvar registro.')
-
-    materias = MateriaModel.objects.all()
+    
     registros = RegistroModel.objects.all()
-    context = {'form': form, 'materias': materias, 'registros': registros}
+    context = {'form': form, 'registros': registros}
     return render(request, 'index.html', context)
 
 
