@@ -10,6 +10,32 @@ body {
     margin: 10px 0;
 }
 
+.subtitle {
+    color: orange;
+    text-align: center;
+    margin: 30px;
+}
+
+.btn {
+    margin: 20px 0;
+}
+
+.index-menu {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.index-menu .btn {
+    color: white;
+    width: 250px;
+    text-decoration: none;
+}
+
+.index-menu .btn a{
+    color: white;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 360px) {
     .image-fluid {
         width: 360px;
