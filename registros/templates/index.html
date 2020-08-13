@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
 
@@ -8,6 +9,10 @@
     <li class="nav-item"></li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Criar nova postagem</button></li>
 </ul>
 <!-- Fim do Menu -->
+
+<!-- Bootstrap Messages -->
+
+{% bootstrap_messages %}
 
 <!-- Início do Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -22,20 +27,24 @@
                 <div class="modal-body">
 
                     <!-- Formulário -->                    
-                    <form method="post" action="{% url 'index' %}">
+                    <form method="post" action="#">
                         {% csrf_token %}
+                        <!-- 
                         <div class="form-group">
-                            <label for="data" class="col-form-label">Data</label>
-                            <input type="date" class="form-control" id="data">
-                        </div>
-                        <div class="form-group">
+                            <input type="hidden" value="null" name="data">
                             <label for="materia" class="col-form-label">Matéria</label>
-                            <input type="text" class="form-control" id="materia">                        
+                            <select name="materia" id="materia">
+                                {% for mat in materias %}
+                                    <option value="{{ mat }}">{{ mat }}</option>
+                                {% endfor %}
+                            </select>                        
                         </div>
                         <div class="form-group">
                             <label for="registro" class="col-form-label">Registro</label>
-                            <textarea class="form-control" id="registro"></textarea>
+                            <textarea class="form-control" id="registro" name="registro"></textarea>
                         </div>                    
+                        -->
+                        {% bootstrap_form form %}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary">Salvar</button>
@@ -48,5 +57,21 @@
         </div>
     </div>
 <!-- Fim do Modal -->
+
+<!-- Início da tabela com rgistros -->
+<table class="table bg-dark">
+    <thead>
+        <th>Data</th><th>Matéria</th><th>Registro</th>
+    </thead>
+    <tbody class="table-striped">
+    {% for post in registros %}
+    <tr>
+        <td>{{ post.data  }}</td>
+        <td>{{ post.materia }}</td>
+        <td>{{ post.registro }}</td>
+    </tr>   
+    {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}

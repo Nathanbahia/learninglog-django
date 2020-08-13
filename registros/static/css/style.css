@@ -1,5 +1,5 @@
 body {
-    background-color: #000;
+    background-color: #101010;
     font-family: monospace;
 }
 
@@ -34,6 +34,14 @@ body {
 .index-menu .btn a{
     color: white;
     text-decoration: none;
+}
+
+.table thead {
+    color: #c8c8c8;
+}
+
+.table tbody {
+    color: white;
 }
 
 @media screen and (max-width: 360px) {
