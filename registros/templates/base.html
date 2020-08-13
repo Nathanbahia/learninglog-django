@@ -11,7 +11,7 @@
 </head>
 <body>
 <header class=''>
-    <h1 class='title typing'>Django Web Framework</h1>
+    <a href="{% url 'index' %}"><h1 class='title typing'>Django Web Framework</h1></a>
     <img class='image-fluid' src="{% static 'img/background.jpg' %}">
 </header>
 
@@ -20,5 +20,6 @@
 
     {% endblock %}
 </div>
+{% bootstrap_javascript jquery='full' %}
 </body>
 </html>
