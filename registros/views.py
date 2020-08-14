@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.contrib import messages
 from .forms import MateriaModelForm, RegistroModelForm
 from .models import MateriaModel, RegistroModel
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def index(request):
     """ Renderiza o template da página inicial. Cria formulário 
     e envia mensagens de sucesso ou falha no salvamento dos registros
@@ -22,7 +23,7 @@ def index(request):
     context = {'form': form, 'registros': registros}
     return render(request, 'index.html', context)
 
-
+@login_required
 def materias(request):
     """ Renderiza o template de cadastro de matérias com o
     formulário MaterialModelForm importado de forms.py.
