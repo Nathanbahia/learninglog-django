@@ -49,6 +49,9 @@ body {
         width: 360px;
         margin: 0;
     }
+    .title {
+        font-size: 2em;
+    }    
 }
 
 @media screen and (min-width: 480px) {
