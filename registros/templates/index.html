@@ -4,10 +4,9 @@
 {% block content %}
 
 <!-- Menu -->
-<ul class=" index-menu">
-    <li class="nav-item"><button type="button" class="btn btn-primary"><a href="{% url 'materias' %}">Cadastrar nova matéria</a></button></li>
-    <li class="nav-item"></li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Criar nova postagem</button></li>
-</ul>
+
+<button type="button" class="btn btn-sm btn-warning"><a href="{% url 'materias' %}">Cadastrar nova matéria</a></button>
+<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Criar nova postagem</button>
 <!-- Fim do Menu -->
 
 <!-- Bootstrap Messages -->
@@ -29,21 +28,6 @@
                     <!-- Formulário -->                    
                     <form method="post" action="#">
                         {% csrf_token %}
-                        <!-- 
-                        <div class="form-group">
-                            <input type="hidden" value="null" name="data">
-                            <label for="materia" class="col-form-label">Matéria</label>
-                            <select name="materia" id="materia">
-                                {% for mat in materias %}
-                                    <option value="{{ mat }}">{{ mat }}</option>
-                                {% endfor %}
-                            </select>                        
-                        </div>
-                        <div class="form-group">
-                            <label for="registro" class="col-form-label">Registro</label>
-                            <textarea class="form-control" id="registro" name="registro"></textarea>
-                        </div>                    
-                        -->
                         {% bootstrap_form form %}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -61,14 +45,19 @@
 <!-- Início da tabela com rgistros -->
 <table class="table bg-dark">
     <thead>
-        <th>Data</th><th>Matéria</th><th>Registro</th>
+        <th>Data</th>
+        <th>Matéria</th>
+        <th>Registro</th>
+        <th colspan="2">Ações</th>
     </thead>
     <tbody class="table-striped">
     {% for post in registros %}
     <tr>
         <td>{{ post.data  }}</td>
         <td>{{ post.materia }}</td>
-        <td>{{ post.registro }}</td>
+        <td>{{ post.registro }}</td>                  
+        <td><a href="" class="icon-link"><i class="far fa-edit"></i></a></td>
+        <td><a href="" class="icon-link"><i class="fas fa-trash-alt"></i></a></td>                    
     </tr>   
     {% endfor %}
     </tbody>

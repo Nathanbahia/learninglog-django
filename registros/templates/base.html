@@ -8,13 +8,14 @@
     <meta name='viewport' content='width=device-width, minimum-scale=1, maximum-scale=1'>
     {% bootstrap_css %}
     <link rel='stylesheet' href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 </head>
 <body>
 <header>
     <ul class='nav navbar'>
         <li class="nav-item"><a href="{% url 'index' %}"><h1 class='title typing'>Django Web Framework</h1></a></li>
         {% if user.is_authenticated %}
-        <li class="nav-item">Olá, {{ user.username }}<a href="{% url 'logout'%}?next={{request.path}}" class="d-flex justify-contend-end">Sair</a></li>        
+        <li class="nav-item username">Olá, {{ user.username }}<a href="{% url 'logout'%}?next={{request.path}}" class="d-flex justify-contend-end">Sair</a></li>        
         {% endif %}
     </ul>
     <img class='image-fluid' src="{% static 'img/background.jpg' %}">
@@ -26,8 +27,7 @@
     {% endblock %}
 </div>
 
-<footer >
-    <div class="d-flex justify-content-center my-0 py-0"><p class="my-0">Desenvolvido usando Django Web Framework</p></div>    
+<footer class="footer">
     <div class="d-flex justify-content-center">
         <img src="{% static 'img/bootstrap-plain.svg' %}" width="40" class="mx-2">        
         <img src="{% static 'img/python-original-wordmark.svg' %}" width="110" class="mx-2">
